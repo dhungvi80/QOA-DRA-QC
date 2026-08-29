@@ -1,54 +1,30 @@
+- name: Send dashboard to Google Drive
+  env:
+    GAS_URL: ${{ secrets.GAS_WEBHOOK_URL }}
+  run: |
+    FILE="dashboard.json"
 
-name: Dashboard Sync
+    echo "Checking repository..."
+    ls -la
 
-on:
-  push:
-    paths:
-      - "dashboard.json"
-  workflow_dispatch:
+    if [ ! -f "$FILE" ]; then
+      echo "ERROR: dashboard.json not found"
+      exit 1
+    fi
 
-jobs:
-  sync:
-    runs-on: ubuntu-latest
+    RESPONSE=$(jq -n \
+      --arg file "dashboard.json" \
+      --arg content "$(cat "$FILE")" \
+      '{file:$file,content:$content}' \
+      | curl -s \
+          -X POST \
+          -H "Content-Type: application/json" \
+          -d @- \
+          "$GAS_URL")
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
+    echo "Apps Script response: $RESPONSE"
 
-      - name: Install jq
-        run: sudo apt-get update && sudo apt-get install -y jq
-
-      - name: Verify dashboard file
-        run: |
-          echo "Repository contents:"
-          ls -la
-
-          if [ ! -f dashboard.json ]; then
-            echo "ERROR: dashboard.json not found"
-            exit 1
-          fi
-
-          echo "dashboard.json found."
-
-      - name: Send dashboard to Google Drive
-        env:
-          GAS_URL: ${{ secrets.GAS_WEBHOOK_URL }}
-        run: |
-          RESPONSE=$(jq -n \
-            --arg file "dashboard.json" \
-            --arg content "$(cat dashboard.json)" \
-            '{file:$file,content:$content}' \
-            | curl -s \
-                -X POST \
-                -H "Content-Type: application/json" \
-                -d @- \
-                "$GAS_URL")
-
-          echo "Apps Script response: $RESPONSE"
-
-          if [ "$RESPONSE" != "OK" ]; then
-            echo "ERROR: Sync failed."
-            exit 1
-          fi
-
-          echo "Dashboard sync completed successfully."
+    if [ "$RESPONSE" != "OK" ]; then
+      echo "ERROR: Sync failed."
+      exit 1
+    fi
