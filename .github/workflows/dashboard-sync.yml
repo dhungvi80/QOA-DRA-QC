@@ -22,20 +22,23 @@ jobs:
 
       - name: Verify dashboard file
         run: |
+          echo "Current directory:"
+          pwd
+
+          echo "Repository contents:"
           ls -la
 
-          if [ ! -f dashboard.json ]; then
-            echo "ERROR: dashboard.json not found"
-            exit 1
-          fi
+          test -f dashboard.json
 
       - name: Send dashboard to Google Drive
         env:
           GAS_URL: ${{ secrets.GAS_WEBHOOK_URL }}
         run: |
+          FILE="dashboard.json"
+
           RESPONSE=$(jq -n \
-            --arg file "dashboard.json" \
-            --arg content "$(cat dashboard.json)" \
+            --arg file "$FILE" \
+            --arg content "$(cat "$FILE")" \
             '{file:$file,content:$content}' \
             | curl -s \
                 -X POST \
@@ -45,7 +48,4 @@ jobs:
 
           echo "Apps Script response: $RESPONSE"
 
-          if [ "$RESPONSE" != "OK" ]; then
-            echo "Sync failed."
-            exit 1
-          fi
+          test "$RESPONSE" = "OK"
