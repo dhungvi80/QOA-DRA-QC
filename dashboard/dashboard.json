@@ -1,10 +1,25 @@
 {
-  "last_updated": "TEST-2026-08-29-1600",
+  "last_updated": "2026-08-29T17:00+07",
   "today_focus": [
-    "Verify GitHub → Apps Script → Google Drive"
+    "Weekly review closed",
+    "Fix dashboard-sync path dashboard/dashboard.json",
+    "Specify EXP-2026-001 config"
   ],
-  "new_papers": [],
-  "simulation": [],
-  "repository_health": [],
-  "weekly_priorities": []
+  "new_papers": [
+    "2608.27099 DQC partitioner metrics (optional if compilation in scope)"
+  ],
+  "simulation": [
+    "EXP-2026-001 scaffold only; CSVs empty",
+    "cn-qos-sim-framework stale since 2026-08-13"
+  ],
+  "repository_health": [
+    "dashboard-sync.yml root path mismatch"
+  ],
+  "weekly_priorities": [
+    "Fix QOA-DRA-QC dashboard-sync path and confirm GAS OK",
+    "EXP-2026-001 config + first seeded run into results.md",
+    "Regenerate cn-qos-sim-framework window_sweep and baseline_suite",
+    "Correctness gate (W, starvation tail, feasibility) before performance claims",
+    "Decision Log: primary simulator and 2608.27099 scope"
+  ]
 }
