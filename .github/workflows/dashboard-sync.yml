@@ -34,7 +34,7 @@ jobs:
         env:
           GAS_URL: ${{ secrets.GAS_WEBHOOK_URL }}
         run: |
-          FILE="dashboard.json"
+          FILE="dashboard/dashboard.json"
 
           RESPONSE=$(jq -n \
             --arg file "$FILE" \
