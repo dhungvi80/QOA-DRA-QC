@@ -1,20 +1,41 @@
-      - name: Send dashboard to Google Drive
-        env:
-          GAS_URL: ${{ secrets.GAS_WEBHOOK_URL }}
-        run: |
-          FILE="dashboard.json"
 
-          echo "Repository contents:"
+name: Dashboard Sync
+
+on:
+  push:
+    paths:
+      - "dashboard.json"
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Install jq
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+
+      - name: Verify dashboard file
+        run: |
           ls -la
 
-          if [ ! -f "$FILE" ]; then
+          if [ ! -f dashboard.json ]; then
             echo "ERROR: dashboard.json not found"
             exit 1
           fi
 
+      - name: Send dashboard to Google Drive
+        env:
+          GAS_URL: ${{ secrets.GAS_WEBHOOK_URL }}
+        run: |
           RESPONSE=$(jq -n \
             --arg file "dashboard.json" \
-            --arg content "$(cat "$FILE")" \
+            --arg content "$(cat dashboard.json)" \
             '{file:$file,content:$content}' \
             | curl -s \
                 -X POST \
@@ -25,6 +46,6 @@
           echo "Apps Script response: $RESPONSE"
 
           if [ "$RESPONSE" != "OK" ]; then
-            echo "ERROR: Sync failed."
+            echo "Sync failed."
             exit 1
           fi
