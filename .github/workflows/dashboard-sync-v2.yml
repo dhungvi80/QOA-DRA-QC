@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "dashboard.json"
+      - "dashboard/dashboard.json"
 
 jobs:
   sync:
@@ -36,7 +36,7 @@ jobs:
           GAS_URL: ${{ secrets.GAS_WEBHOOK_URL }}
         run: |
           RESPONSE=$(jq -n \
-            --arg file "dashboard.json" \
+            --arg file "dashboard/dashboard.json" \
             --arg content "$(cat dashboard.json)" \
             '{file:$file,content:$content}' \
             | curl -s \
