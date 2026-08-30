@@ -1,0 +1,26 @@
+
+name: Dashboard Sync V3
+
+on:
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Verify repository
+        run: |
+          echo "=== DASHBOARD SYNC V3 ==="
+          pwd
+          ls -la
+          test -f dashboard.json
+
+      - name: Send to Apps Script
+        env:
+          GAS_URL: ${{ secrets.GAS_WEBHOOK_URL }}
+        run: |
+          echo "Testing Apps Script..."
+          curl -s "$GAS_URL"
