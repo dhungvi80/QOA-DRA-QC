@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "dashboard.json"
+      - "dashboard/dashboard.json"
 
 jobs:
   sync:
@@ -25,19 +25,20 @@ jobs:
           echo "===== DASHBOARD SYNC V3 ====="
           pwd
           ls -la
+          ls -la dashboard
 
-          if [ ! -f dashboard.json ]; then
-            echo "ERROR: dashboard.json not found"
+          if [ ! -f dashboard/dashboard.json ]; then
+            echo "ERROR: dashboard/dashboard.json not found"
             exit 1
           fi
 
-      - name: Send dashboard to Google Apps Script
+      - name: Send to Google Apps Script
         env:
           GAS_URL: ${{ secrets.GAS_WEBHOOK_URL }}
         run: |
           RESPONSE=$(jq -n \
             --arg file "dashboard.json" \
-            --arg content "$(cat dashboard.json)" \
+            --arg content "$(cat dashboard/dashboard.json)" \
             '{file:$file,content:$content}' \
             | curl -s \
                 -X POST \
