@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-08-30T17:10+07",
+  "last_updated": "2026-08-31T17:10+07",
   "today_focus": [
-    "Weekly review 2026-08-24 to 30 filed",
-    "Debug Dashboard Sync V3 until GAS OK",
-    "Fix health-check.yml path dashboard/dashboard.json"
+    "Weekly review 2026-08-25 to 31 filed",
+    "Fix health-check.yml path dashboard/dashboard.json (run 33348307074 failed)",
+    "Debug Dashboard Sync V3 until GAS OK"
   ],
   "new_papers": [
     "2608.27099 DQC partitioner metrics (optional if compilation in scope)"
@@ -13,13 +13,13 @@
     "cn-qos-sim-framework stale since 2026-08-13"
   ],
   "repository_health": [
-    "Sync V3 path correct but run 33304318158 failed",
-    "health-check.yml still tests root dashboard.json",
-    "Drive dashboard.json size 0"
+    "Sync V3 runs 33304318158 and 33305774167 failed",
+    "Health Check 33348307074 failed: tests root dashboard.json",
+    "Drive dashboard.json 1048 bytes is a 30 Aug review snapshot, not GAS OK"
   ],
   "weekly_priorities": [
-    "Confirm Dashboard Sync V3 GAS OK and non-empty Drive dashboard.json",
-    "Fix health-check.yml path to dashboard/dashboard.json",
+    "Fix health-check.yml path to dashboard/dashboard.json and get a green run",
+    "Confirm Dashboard Sync V3 GAS OK (do not treat Drive JSON as CI success)",
     "EXP-2026-001 config + first seeded run into results.md",
     "Regenerate cn-qos-sim-framework window_sweep and baseline_suite",
     "Correctness gate (W, starvation tail, feasibility) before performance claims",
