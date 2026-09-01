@@ -1,8 +1,8 @@
 {
-  "last_updated": "2026-08-31T17:10+07",
+  "last_updated": "2026-09-01T17:10+07",
   "today_focus": [
-    "Weekly review 2026-08-25 to 31 filed",
-    "Fix health-check.yml path dashboard/dashboard.json (run 33348307074 failed)",
+    "Weekly review 2026-08-26 to 09-01 filed",
+    "Fix health-check.yml path dashboard/dashboard.json (run 33461231534 failed 1 Sep)",
     "Debug Dashboard Sync V3 until GAS OK"
   ],
   "new_papers": [
@@ -13,9 +13,9 @@
     "cn-qos-sim-framework stale since 2026-08-13"
   ],
   "repository_health": [
-    "Sync V3 runs 33304318158 and 33305774167 failed",
-    "Health Check 33348307074 failed: tests root dashboard.json",
-    "Drive dashboard.json 1048 bytes is a 30 Aug review snapshot, not GAS OK"
+    "Sync V3 runs 33304318158, 33305774167, 33381145510 failed",
+    "Health Check 33461231534 failed: tests root dashboard.json",
+    "Drive dashboard.json is a review snapshot, not GAS OK"
   ],
   "weekly_priorities": [
     "Fix health-check.yml path to dashboard/dashboard.json and get a green run",
