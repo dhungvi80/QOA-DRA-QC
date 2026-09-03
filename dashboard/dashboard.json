@@ -1,7 +1,8 @@
 {
-  "last_updated": "2026-09-02T17:10+07",
+  "last_updated": "2026-09-03T17:12+07",
   "today_focus": [
-    "Weekly review 2026-08-27 to 09-02 filed",
+    "Weekly review 2026-08-28 to 09-03 filed",
+    "Register qos_sim_final dc96e7ef as new algorithm/sim artifact",
     "Fix health-check.yml path dashboard/dashboard.json (run 33579506671 failed 2 Sep)",
     "Debug Dashboard Sync V3 until GAS OK"
   ],
@@ -9,20 +10,24 @@
     "2608.27099 DQC partitioner metrics (optional if compilation in scope)"
   ],
   "simulation": [
-    "EXP-2026-001 scaffold only; CSVs empty",
+    "qos_sim_final published 3 Sep; author-reported 100x3 tables; not EXP-2026-001",
+    "EXP-2026-001 scaffold only; QNodeOS/HALO CSVs empty",
     "cn-qos-sim-framework stale since 2026-08-13"
   ],
   "repository_health": [
     "Sync V3 runs 33304318158, 33305774167, 33381145510, 33495660659 failed",
     "Health Check 33579506671 failed: tests root dashboard.json",
-    "Drive dashboard.json is a review snapshot, not GAS OK"
+    "Drive dashboard.json is a review snapshot, not GAS OK",
+    "New repo qos_sim_final; do not mix CSVs with cn-qos-sim-framework"
   ],
   "weekly_priorities": [
+    "Decide if qos_sim_final is primary simulator or paper-only; record in Decision Log",
+    "Re-run qos_sim_final tests and recompute summaries from raw CSVs",
     "Fix health-check.yml path to dashboard/dashboard.json and get a green run",
     "Confirm Dashboard Sync V3 GAS OK (do not treat Drive JSON as CI success)",
-    "EXP-2026-001 config + first seeded run into results.md",
-    "Regenerate cn-qos-sim-framework window_sweep and baseline_suite",
-    "Correctness gate (W, starvation tail, feasibility) before performance claims",
-    "Decision Log: primary simulator and 2608.27099 scope"
+    "Specify or retire EXP-2026-001",
+    "Correctness gate before performance claims",
+    "Do not mix qos_sim_final CSVs with cn-qos-sim-framework",
+    "Decision Log: 2608.27099 scope"
   ]
 }
