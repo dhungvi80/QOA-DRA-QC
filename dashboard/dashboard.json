@@ -1,30 +1,30 @@
 {
-  "last_updated": "2026-09-04T17:10+07",
+  "last_updated": "2026-09-05T17:10+07",
   "today_focus": [
-    "Weekly review 2026-08-29 to 09-04 filed",
-    "Health Check #5 33825707550 failed 4 Sep (root dashboard.json path)",
-    "Sync V3 #7 33743214534 failed 3 Sep; no GAS OK",
-    "qos_sim_final still dc96e7ef; no 4 Sep commit"
+    "Weekly review 2026-08-30 to 09-05 filed",
+    "Health Check #6 33936225182 failed 5 Sep (root dashboard.json path)",
+    "Sync V3 #8 33861856034 failed 4 Sep; no GAS OK",
+    "qos_sim_final still dc96e7ef; no 4-5 Sep commit"
   ],
   "new_papers": [
     "2608.27099 DQC partitioner metrics (optional if compilation in scope)"
   ],
   "simulation": [
-    "qos_sim_final published 3 Sep; author-reported 100x3 tables; not EXP-2026-001; idle 4 Sep",
+    "qos_sim_final published 3 Sep; author-reported 100x3 tables; not EXP-2026-001; idle 4-5 Sep",
     "EXP-2026-001 scaffold only; QNodeOS/HALO CSVs empty",
     "cn-qos-sim-framework stale since 2026-08-13"
   ],
   "repository_health": [
-    "Sync V3 runs through #7 33743214534 failed",
-    "Health Check #5 33825707550 failed 4 Sep: tests root dashboard.json",
+    "Sync V3 runs through #8 33861856034 failed",
+    "Health Check #6 33936225182 failed 5 Sep: tests root dashboard.json",
     "Drive dashboard.json is a review snapshot, not GAS OK",
     "qos_sim_final dc96e7ef only; do not mix CSVs with cn-qos-sim-framework"
   ],
   "weekly_priorities": [
     "Decide if qos_sim_final is primary simulator or paper-only; record in Decision Log",
     "Re-run qos_sim_final tests and recompute summaries from raw CSVs",
-    "Fix health-check.yml path to dashboard/dashboard.json and get a green run (33825707550 failed 4 Sep)",
-    "Confirm Dashboard Sync V3 GAS OK (runs #2-#7 failed; Drive JSON is a manual snapshot)",
+    "Fix health-check.yml path to dashboard/dashboard.json and get a green run (33936225182 failed 5 Sep)",
+    "Confirm Dashboard Sync V3 GAS OK (runs #2-#8 failed; Drive JSON is a manual snapshot)",
     "Specify or retire EXP-2026-001",
     "Correctness gate before performance claims",
     "Do not mix qos_sim_final CSVs with cn-qos-sim-framework",
