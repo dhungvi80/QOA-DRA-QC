@@ -1,24 +1,29 @@
 {
-  "last_updated": "2026-09-09T17:09+07",
+  "last_updated": "2026-09-10T14:18+07",
   "today_focus": [
     "Weekly review 2026-09-03 to 09-09 filed",
     "Health Check #10 34299934589 failed 9 Sep (root dashboard.json path); unchanged 9 Sep",
     "Sync V3 #12 34214224238 failed 8 Sep; no GAS OK",
-    "qos_sim_final still dc96e7ef; no 4-9 Sep commit"
+    "qos_sim_final still dc96e7ef; no 4-9 Sep commit",
+    "MT-QOS-v11 created 9 Sep (private); wrapper only, worker script not in repo"
   ],
   "new_papers": [
     "2608.27099 DQC partitioner metrics (optional if compilation in scope)"
   ],
   "simulation": [
-    "qos_sim_final published 3 Sep; author-reported 100x3 tables; not EXP-2026-001; idle 4-9 Sep",
+    "qos_sim_final published 3 Sep; author-reported 100x3 tables; not EXP-2026-001; idle 4-10 Sep",
     "EXP-2026-001 scaffold only; QNodeOS/HALO CSVs empty",
-    "cn-qos-sim-framework stale since 2026-08-13"
+    "cn-qos-sim-framework stale since 2026-08-13",
+    "MT-QOS-v11 screening runner present; --script target and outputs not committed"
   ],
   "repository_health": [
-    "Sync V3 runs through #12 34214224238 failed",
-    "Health Check #10 34299934589 failed 9 Sep: tests root dashboard.json",
-    "Drive dashboard.json is a review snapshot, not GAS OK",
-    "qos_sim_final dc96e7ef only; do not mix CSVs with cn-qos-sim-framework"
+    "Review 2026-09-10 14:18 +07. Scope: qos_sim_final@dc96e7ef, cn-qos-sim-framework@c70db402, cn-qos-demo@28ea1251, QOA-DRA-QC@pre-this-commit, mt-qos empty, MT-QOS-v11@734a2dab. Application files not modified.",
+    "Bugs / CI: Health Check still `test -f dashboard.json` at repo root (file lives at dashboard/dashboard.json). Sync V3 through #12 failed; GAS OK unproven. This JSON update will re-trigger Sync V3.",
+    "New code: qos_sim_final idle since 3 Sep. Only new application repo since last health note is private MT-QOS-v11 (9 Sep).",
+    "Duplicated code: cn-qos-sim-framework has two generators — simulation/engine.generate_synthetic_workload (numpy RNG, setattr arrival_time) vs baseline/ca_ahp_dms/sim/workload.make_jobs (stdlib random, no arrivals) and two QPU factories with different capacity sets. qos_sim_final diagnostics/diag_dm_noise.py overlaps diag_dm_noise2.py. Cross-repo split remains: paper toolkit (qos_sim_final) vs scheduler harness (cn-qos-sim-framework) vs demo zip (cn-qos-demo) vs MT-QOS-v11 wrapper.",
+    "Unused files: mt-qos empty. QOA-DRA-QC ops-only. qos_sim_final/diagnostics not referenced by tests. cn-qos-demo is zip + precomputed CSVs. MT-QOS-v11 has no worker module; --script is external. EXP-2026-001 artifacts still empty (Drive, not GitHub).",
+    "Inconsistent naming: qos_sim_final repo vs qos_sim package; mt-qos vs MT-QOS-v11; cn-qos-* vs QOA-DRA-QC; Job.arrival_time used but not a dataclass field; health-check path vs dashboard/dashboard.json; README tree shows qos_sim/qos_sim/ nest that does not match the tree; mixed EN/VI docs.",
+    "Simulation risks. Evidence: qos_sim_final QAOA is numpy statevector (qaoa_numpy.py), not Qiskit/hardware; Gurobi absent; README reports QAOA+Repair identical to Greedy on 300 trials. cn-qos-sim-framework Job has no arrival_time field (setattr + type ignore); dual RNGs (numpy vs random.Random); service time hardcoded 4.0+0.06*depth; NetSquid optional and diagnostics assume 1.1.8. MT-QOS-v11 enumerates FakeBrisbane/FakeSherbrooke screening but does not ship the experiment script. Inference: mixing qos_sim_final CSVs with cn-qos-sim-framework or cn-qos-demo tables is not valid. Hypothesis: treating qos_sim_final feasibility tables as QNodeOS/HALO or MT-QOS-v11 evidence would overclaim."
   ],
   "weekly_priorities": [
     "Decide if qos_sim_final is primary simulator or paper-only; record in Decision Log",
@@ -28,6 +33,7 @@
     "Specify or retire EXP-2026-001",
     "Correctness gate before performance claims",
     "Do not mix qos_sim_final CSVs with cn-qos-sim-framework",
-    "Decision Log: 2608.27099 scope"
+    "Decision Log: 2608.27099 scope",
+    "Record MT-QOS-v11 scope vs qos_sim_final; commit or pin the missing --script worker"
   ]
 }
