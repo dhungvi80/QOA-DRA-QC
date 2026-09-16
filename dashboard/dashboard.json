@@ -1,27 +1,27 @@
 {
-  "last_updated": "2026-09-15T17:08+07",
+  "last_updated": "2026-09-16T17:18+07",
   "today_focus": [
-    "Weekly review 2026-09-09 to 09-15 filed",
+    "Weekly review 2026-09-10 to 09-16 filed",
     "Health Check #13 34665351388 failed 12 Sep (root dashboard.json path)",
     "Weekly Review #2 34612522532 failed 11 Sep",
     "Sync V3 #16 34588438854 failed 11 Sep; no GAS OK",
-    "qos_sim_final still dc96e7ef; no 4-15 Sep commit",
-    "MT-QOS-v11 created 9 Sep (private, 734a2dab); wrapper only, worker script not in repo; idle 10-15 Sep",
-    "No 15 Sep GitHub commit after 1b83527c"
+    "qos_sim_final still dc96e7ef; no 4-16 Sep commit",
+    "MT-QOS-v11 created 9 Sep (private, 734a2dab); wrapper only, worker script not in repo; idle 10-16 Sep",
+    "No 16 Sep GitHub commit after 50e265a8"
   ],
   "new_papers": [
     "2608.27099 DQC partitioner metrics (optional if compilation in scope)"
   ],
   "simulation": [
-    "qos_sim_final published 3 Sep; author-reported 100x3 tables; not EXP-2026-001; idle 4-15 Sep",
+    "qos_sim_final published 3 Sep; author-reported 100x3 tables; not EXP-2026-001; idle 4-16 Sep",
     "MT-QOS-v11 screening runner present; --script target and outputs not committed",
     "EXP-2026-001 scaffold only; QNodeOS/HALO CSVs empty",
     "cn-qos-sim-framework stale since 2026-08-13"
   ],
   "repository_health": [
-    "Review 2026-09-15 17:08 +07. Scope: qos_sim_final@dc96e7ef, cn-qos-sim-framework stale, QOA-DRA-QC@1b83527c, mt-qos empty, MT-QOS-v11@734a2dab.",
+    "Review 2026-09-16 17:18 +07. Scope: qos_sim_final@dc96e7ef, cn-qos-sim-framework stale, QOA-DRA-QC@50e265a8, mt-qos empty, MT-QOS-v11@734a2dab.",
     "Bugs / CI: Health Check still `test -f dashboard.json` at repo root. Sync V3 through #16 failed; Weekly Review #2 failed; GAS OK unproven.",
-    "New code: qos_sim_final idle since 3 Sep. Only new application repo is private MT-QOS-v11 (9 Sep). No 15 Sep application commit.",
+    "New code: qos_sim_final idle since 3 Sep. Only new application repo is private MT-QOS-v11 (9 Sep). No 16 Sep application commit.",
     "Duplicated code: paper toolkit (qos_sim_final) vs scheduler harness (cn-qos-sim-framework) vs screening wrapper (MT-QOS-v11).",
     "Unused files: mt-qos empty. QOA-DRA-QC ops-only. EXP-2026-001 artifacts still empty. MT-QOS-v11 has no worker module.",
     "Simulation risks. Evidence: numpy QAOA not Qiskit; Gurobi absent; QAOA+Repair identical to Greedy on 300 trials. MT-QOS-v11 does not ship the experiment script. Inference: mixing CSVs across repos is not valid."
@@ -30,7 +30,7 @@
     "Decide if qos_sim_final is primary simulator, paper-only, or coexists with MT-QOS-v11; record in Decision Log",
     "Re-run qos_sim_final tests and recompute summaries from raw CSVs",
     "Pin or add MT-QOS-v11 --script worker and one seeded subset500 log, or retire the repo",
-    "Fix health-check.yml path to dashboard/dashboard.json and get a green run (34665351388 failed 12 Sep; unchanged 15 Sep)",
+    "Fix health-check.yml path to dashboard/dashboard.json and get a green run (34665351388 failed 12 Sep; unchanged 16 Sep)",
     "Confirm Dashboard Sync V3 GAS OK (runs through #16 failed; Drive JSON is a manual snapshot)",
     "Specify or retire EXP-2026-001",
     "Correctness gate before performance claims",
