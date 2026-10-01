@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-10-01T14:01+07",
+  "last_updated": "2026-10-01T17:05+07",
   "today_focus": [
-    "File weekly entry 2026-09-24 to 09-30",
-    "Health Check still tests repo-root dashboard.json (fails; file is dashboard/dashboard.json)",
-    "Sync V3 through #25 failed; Weekly Review #3 failed; GAS OK unproven",
+    "File weekly entry 2026-09-25 to 10-01",
+    "Health Check #32 (36806157626) failed 1 Oct 02:30Z; path still repo-root dashboard.json",
+    "Sync V3 #37 (36828035325) failed 1 Oct 07:02Z; Weekly Review #3 failed; GAS OK unproven",
     "qos_sim_final still dc96e7ef; no 4 Sep–01 Oct commit",
     "MT-QOS-v11 still 734a2dab; wrapper only; worker --script not in repo; idle 10 Sep–01 Oct",
     "cn-qos-sim-framework still c70db402 (13 Aug); mt-qos empty; cn-qos-demo idle since 30 Jul",
@@ -19,20 +19,19 @@
     "cn-qos-sim-framework stale since 2026-08-13"
   ],
   "repository_health": [
-    "Review 2026-10-01 14:01 +07. Scope: qos_sim_final@dc96e7ef, cn-qos-sim-framework@c70db402, QOA-DRA-QC@pre-review eef9fc4e, mt-qos empty, MT-QOS-v11@734a2dab, cn-qos-demo@28ea1251. Application sources not modified this review.",
-    "Bugs / CI: Health Check still `test -f dashboard.json` at repo root while the file lives at dashboard/dashboard.json. Sync V3 through #25 failed; Weekly Review #3 failed; GAS OK unproven. Workflows unchanged through 1 Oct. No 1 Oct application commit.",
-    "New code: no application commit 4 Sep–01 Oct (qos_sim_final) or 10 Sep–01 Oct (MT-QOS-v11). Last framework push 13 Aug. This commit updates only dashboard repository_health.",
-    "Duplicated code: four parallel QOS lines — paper toolkit (qos_sim_final QUBO/QAOA+Repair+NetSquid telemetry), scheduler harness (cn-qos-sim-framework CAAHPDMS + Pareto + aging; also nested baseline/ca_ahp_dms vs top-level simulation/), hardware-screening wrapper (MT-QOS-v11), packaged demo (cn-qos-demo zip + generated CSVs). Dual workload generators remain in the framework (ca_ahp_dms/sim/workload.py and simulation/engine.generate_synthetic_workload).",
-    "Unused files: mt-qos is an empty GitHub repo. QOA-DRA-QC is ops-only. EXP-2026-001 artifacts remain empty. MT-QOS-v11 has no src/ worker (scripts/run_subset500.sh points at src/qiskit_hybrid_dca_qi_selector_v11.py, not in tree). qos_sim_final diagnostics/diag_dm_noise.py and diag_dm_noise2.py are near-duplicate probes. cn-qos-demo stores both source generators and a committed zip.",
-    "Inconsistent naming: repo styles mix kebab (cn-qos-sim-framework, cn-qos-demo), snake (qos_sim_final, mt-qos), and SCREAMING (MT-QOS-v11, QOA-DRA-QC). Package vs path: ca_ahp_dms imported as top-level while living under baseline/ca_ahp_dms. Job.arrival_time is assigned dynamically (type: ignore) rather than declared on the Job model. Backends named FakeBrisbane/FakeSherbrooke in MT-QOS-v11 vs numpy QAOA + in-repo NetSquid in qos_sim_final.",
-    "Simulation risks. Evidence: qos_sim_final QAOA is numpy statevector, not Qiskit/hardware; Gurobi absent; README reports QAOA+Repair identical to Greedy on 300 trials. cn-qos-sim-framework Job has no arrival_time field on the dataclass; engine monkey-patches it and uses dual RNGs (np.random.default_rng plus scheduler internals). MT-QOS-v11 enumerates FakeBrisbane/FakeSherbrooke but does not ship the experiment script or any CSV. Inference: mixing CSVs across the four codebases is not valid. Hypothesis: treating qos_sim_final feasibility tables as QNodeOS/HALO or MT-QOS-v11 hardware-screening evidence would overclaim."
+    "Review 2026-10-01 17:05 +07. Scope: qos_sim_final@dc96e7ef, cn-qos-sim-framework@c70db402, QOA-DRA-QC@0330af3c, mt-qos empty, MT-QOS-v11@734a2dab, cn-qos-demo@28ea1251. Application sources not modified this review.",
+    "Bugs / CI: Health Check #32 (36806157626, 1 Oct) failed on test -f dashboard.json at repo root while the file lives at dashboard/dashboard.json. Sync V3 #37 (36828035325, 1 Oct) failed; Weekly Review #3 failed; GAS OK unproven. Workflows unchanged through 1 Oct. No 1 Oct application commit.",
+    "New code: no application commit 4 Sep–01 Oct (qos_sim_final) or 10 Sep–01 Oct (MT-QOS-v11). Last framework push 13 Aug. This commit updates only dashboard weekly priorities.",
+    "Duplicated code: four parallel QOS lines — paper toolkit (qos_sim_final QUBO/QAOA+Repair+NetSquid telemetry), scheduler harness (cn-qos-sim-framework CAAHPDMS + Pareto + aging; also nested baseline/ca_ahp_dms vs top-level simulation/), hardware-screening wrapper (MT-QOS-v11), packaged demo (cn-qos-demo zip + generated CSVs). Dual workload generators remain in the framework.",
+    "Unused files: mt-qos is an empty GitHub repo. QOA-DRA-QC is ops-only. EXP-2026-001 artifacts remain empty. MT-QOS-v11 has no src/ worker (scripts/run_subset500.sh points at src/qiskit_hybrid_dca_qi_selector_v11.py, not in tree).",
+    "Simulation risks. Evidence: qos_sim_final QAOA is numpy statevector, not Qiskit/hardware; Gurobi absent; README reports QAOA+Repair identical to Greedy on 300 trials. cn-qos-sim-framework Job has no arrival_time field on the dataclass. MT-QOS-v11 enumerates FakeBrisbane/FakeSherbrooke but does not ship the experiment script or any CSV. Inference: mixing CSVs across the four codebases is not valid. Hypothesis: treating qos_sim_final feasibility tables as QNodeOS/HALO or MT-QOS-v11 hardware-screening evidence would overclaim."
   ],
   "weekly_priorities": [
     "Decide if qos_sim_final is primary simulator, paper-only, or coexists with MT-QOS-v11; record in Decision Log",
     "Re-run qos_sim_final tests and recompute summaries from raw CSVs",
     "Pin or add MT-QOS-v11 --script worker and one seeded subset500 log, or retire the repo",
-    "Fix health-check.yml path to dashboard/dashboard.json and get a green run",
-    "Confirm Dashboard Sync V3 GAS OK",
+    "Fix health-check.yml path to dashboard/dashboard.json and get a green run (1 Oct run 36806157626 failed)",
+    "Confirm Dashboard Sync V3 GAS OK (run #37 / 36828035325 failed 1 Oct)",
     "Specify or retire EXP-2026-001",
     "Correctness gate before performance claims",
     "Do not mix qos_sim_final CSVs with cn-qos-sim-framework, MT-QOS-v11, or cn-qos-demo",
