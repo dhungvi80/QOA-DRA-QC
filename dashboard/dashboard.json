@@ -1,30 +1,30 @@
 {
-  "last_updated": "2026-10-06T17:05+07",
+  "last_updated": "2026-10-07T17:10+07",
   "today_focus": [
-    "File weekly entry 2026-09-30 to 10-06",
-    "Health Check #37 (37408611305) failed 6 Oct 03:21Z; path still repo-root dashboard.json",
-    "Health Check #36 (37255401691) failed 5 Oct 02:26Z",
+    "File weekly entry 2026-10-01 to 10-07",
+    "Health Check #38 (37563401141) failed 7 Oct 02:44Z; path still repo-root dashboard.json",
+    "Health Check #37 (37408611305) failed 6 Oct 03:21Z",
     "Weekly Review #5 (37034273472) failed 2 Oct 16:29Z on git push 403 to github-actions[bot]",
-    "Sync V3 #42 (37295001800) failed 5 Oct 10:11Z on d4467c03; GAS OK unproven",
+    "Sync V3 #43 (37447785904) failed 6 Oct 10:08Z on fe0a4372; GAS OK unproven",
     "6 Oct zip ab0ebb22 added qos_sim_final.zip then b39ed429 deleted it; not an application commit",
-    "qos_sim_final still dc96e7ef; no 4 Sep-06 Oct commit",
-    "MT-QOS-v11 still 734a2dab; wrapper only; worker --script not in repo; idle 10 Sep-06 Oct",
+    "qos_sim_final still dc96e7ef; no 4 Sep-07 Oct commit",
+    "MT-QOS-v11 still 734a2dab; wrapper only; worker --script not in repo; idle 10 Sep-07 Oct",
     "Do not mix CSVs across qos_sim_final / cn-qos-sim-framework / MT-QOS-v11 / cn-qos-demo"
   ],
   "new_papers": [
     "2608.27099 DQC partitioner metrics (optional if compilation in scope)"
   ],
   "simulation": [
-    "qos_sim_final published 3 Sep; author-reported 100x3 tables; not EXP-2026-001; idle 4 Sep-06 Oct",
+    "qos_sim_final published 3 Sep; author-reported 100x3 tables; not EXP-2026-001; idle 4 Sep-07 Oct",
     "MT-QOS-v11 screening runner present; --script target src/qiskit_hybrid_dca_qi_selector_v11.py and outputs not committed",
     "EXP-2026-001 scaffold only; QNodeOS/HALO CSVs empty",
     "6 Oct qos_sim_final.zip on QOA-DRA-QC was uploaded then deleted; not a run",
     "cn-qos-sim-framework stale since 2026-08-13"
   ],
   "repository_health": [
-    "Review 2026-10-06 17:05 +07. Scope: qos_sim_final@dc96e7ef, cn-qos-sim-framework@c70db402, QOA-DRA-QC@b39ed429, mt-qos empty, MT-QOS-v11@734a2dab, cn-qos-demo@28ea1251. Application sources not modified this review.",
-    "Bugs / CI: Health Check #37 (37408611305, 6 Oct) failed on test -f dashboard.json at repo root while the file lives at dashboard/dashboard.json. Sync V3 #42 (37295001800, 5 Oct) failed; Weekly Review #5 (37034273472, 2 Oct) failed on push 403; GAS OK unproven. Workflows unchanged through 6 Oct.",
-    "New code: no application commit 4 Sep-06 Oct (qos_sim_final) or 10 Sep-06 Oct (MT-QOS-v11). 6 Oct only added then deleted qos_sim_final.zip (ab0ebb22 / b39ed429). This commit updates only dashboard weekly priorities.",
+    "Review 2026-10-07 17:10 +07. Scope: qos_sim_final@dc96e7ef, cn-qos-sim-framework@c70db402, QOA-DRA-QC@fe0a4372, mt-qos empty, MT-QOS-v11@734a2dab, cn-qos-demo@28ea1251. Application sources not modified this review.",
+    "Bugs / CI: Health Check #38 (37563401141, 7 Oct) failed on test -f dashboard.json at repo root while the file lives at dashboard/dashboard.json. Sync V3 #43 (37447785904, 6 Oct) failed; Weekly Review #5 (37034273472, 2 Oct) failed on push 403; GAS OK unproven. Workflows unchanged through 7 Oct.",
+    "New code: no application commit 4 Sep-07 Oct (qos_sim_final) or 10 Sep-07 Oct (MT-QOS-v11). 6 Oct only added then deleted qos_sim_final.zip (ab0ebb22 / b39ed429). This commit updates only dashboard weekly priorities.",
     "Duplicated code: four parallel QOS lines \u2014 paper toolkit (qos_sim_final QUBO/QAOA+Repair+NetSquid telemetry), scheduler harness (cn-qos-sim-framework CAAHPDMS + Pareto + aging), hardware-screening wrapper (MT-QOS-v11), packaged demo (cn-qos-demo). Dual workload generators remain in the framework.",
     "Unused files: mt-qos is an empty GitHub repo. QOA-DRA-QC is ops-only. EXP-2026-001 artifacts remain empty. MT-QOS-v11 has no src/ worker (scripts/run_subset500.sh points at src/qiskit_hybrid_dca_qi_selector_v11.py, not in tree).",
     "Simulation risks. Evidence: qos_sim_final QAOA is numpy statevector, not Qiskit/hardware; Gurobi absent; README reports QAOA+Repair identical to Greedy on 300 trials. cn-qos-sim-framework Job has no arrival_time field on the dataclass. MT-QOS-v11 enumerates FakeBrisbane/FakeSherbrooke but does not ship the experiment script or any CSV. Inference: mixing CSVs across the four codebases is not valid. Hypothesis: treating qos_sim_final feasibility tables or the deleted 6 Oct zip as QNodeOS/HALO or MT-QOS-v11 evidence would overclaim."
@@ -33,8 +33,8 @@
     "Decide if qos_sim_final is primary simulator, paper-only, or coexists with MT-QOS-v11; record in Decision Log",
     "Re-run qos_sim_final tests and recompute summaries from raw CSVs; do not use the deleted 6 Oct zip",
     "Pin or add MT-QOS-v11 --script worker and one seeded subset500 log, or retire the repo",
-    "Fix health-check.yml path to dashboard/dashboard.json and get a green run (6 Oct run 37408611305 failed)",
-    "Confirm Dashboard Sync V3 GAS OK (run #42 / 37295001800 failed 5 Oct on d4467c03)",
+    "Fix health-check.yml path to dashboard/dashboard.json and get a green run (7 Oct run 37563401141 failed)",
+    "Confirm Dashboard Sync V3 GAS OK (run #43 / 37447785904 failed 6 Oct on fe0a4372)",
     "Grant contents: write for Weekly Review; run #5 / 37034273472 failed 2 Oct on push 403",
     "Specify or retire EXP-2026-001",
     "Correctness gate before performance claims",
