@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-12T17:07+07",
+  "last_updated": "2026-10-15T14:01+07",
   "today_focus": [
     "Filed weekly entry 2026-10-06 to 10-12",
     "qos_sim_final 22dfb5c6 (11 Oct 15:01 +07) force-sync established server tree as tip; artifacts from ee438db0 now fully on main; no qos_sim source edit",
@@ -19,9 +19,11 @@
     "EXP-2026-001 scaffold only; QNodeOS/HALO CSVs empty"
   ],
   "repository_health": [
-    "Review 2026-10-12. Scope: qos_sim_final@22dfb5c6, QOA-DRA-QC@25ef6123, MT-QOS-v11@734a2dab.",
-    "Bugs / CI: Health Check #41 failed on root-path dashboard.json. Sync V3 #45 failed; Weekly Review #6 failed on push 403. No new runs on 12 Oct. Workflows unchanged.",
-    "New code: qos_sim_final force-sync 11 Oct; no algorithm source edit after dc96e7ef (3 Sep). No 12 Oct commits."
+    "Review 2026-10-15. Scope: qos_sim_final@22dfb5c6 (primary sim), QOA-DRA-QC@38fcf984.",
+    "Duplicated code/files: backup_old/ duplicates results_raw_25.csv (SHA 36df1b1e) and results_summary_old_1791337958.csv; log_25/50/100.txt identical (SHA cca4dabb, ModuleNotFoundError: numpy); multiple :Zone.Identifier Windows artifacts; results_summary_old also at root.",
+    "Unused files: diagnostics/diag_*.py (one-off NetSquid debug, not imported); backup_old/; examples/verify_dp1.py, run_ablation_*.py, test_simulator_minimal.py, recompute_summary.py (outdated columns); shell scripts resume_watch.sh, run_t3_parallel.sh, run_all.sh; explain.md.",
+    "Inconsistent naming: mixed VN/EN comments; CLI --n-nodes vs n_nodes; results_raw_<n>.csv vs summary missing n=25; qaoa_numpy.py fallback vs NetSquid path; F_MIN 0.95 vs prior 0.80; COLLISION_PRUNING=False undocumented in README.",
+    "Simulation risks: simulator.py docstring marks UNTESTED (NetSquid 1.1.x API, DM formalism, HERALDING_DWELL_NS=145us, T2=10ms NV assumptions); logs show failed numpy import on server; results_summary.csv missing n=25 row despite results_raw_25.csv present; QAOA+Repair U(x) equals Greedy exactly (Prop 2); no pinned NetSquid/version CI; health-check.yml still tests root dashboard.json (fails); no reproducibility pin for seeds 42-141 beyond logs."
   ],
   "weekly_priorities": [
     "Recompute n=50/100 from results_raw CSVs and match log_100.txt seeds 42-141; explain missing n=25 row in results_summary.csv",
