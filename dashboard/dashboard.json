@@ -1,14 +1,15 @@
 {
-  "last_updated": "2026-10-16T17:06+07",
+  "last_updated": "2026-10-17T17:05+07",
   "today_focus": [
-    "Filed weekly entry 2026-10-10 to 10-16",
+    "Filed weekly entry 2026-10-11 to 10-17",
     "qos_sim_final 22dfb5c6 (11 Oct 15:01 +07) force-sync established server tree as tip; artifacts from ee438db0 now fully on main; no qos_sim source edit",
     "Health Check #41 (38018309782) failed 10 Oct 02:48Z; path still repo-root dashboard.json",
     "Weekly Review #6 (37965463731) failed 9 Oct 17:19Z on git push 403",
     "Sync V3 #45 (37761431616) failed 8 Oct; GAS OK unproven",
     "MT-QOS-v11 still 734a2dab; wrapper only; worker --script not in repo",
     "15 Oct ops commit a124284 documented qos_sim_final health (duplicates, unused, naming, risks)",
-    "No new activity on 16 Oct as of 17:06 +07",
+    "16 Oct dashboard update fe80b324 after prior weekly filing",
+    "No new activity on 17 Oct as of 17:05 +07",
     "Do not mix CSVs across qos_sim_final / cn-qos-sim-framework / MT-QOS-v11 / cn-qos-demo"
   ],
   "new_papers": [
@@ -20,7 +21,7 @@
     "EXP-2026-001 scaffold only; QNodeOS/HALO CSVs empty"
   ],
   "repository_health": [
-    "Review 2026-10-16. Scope: qos_sim_final@22dfb5c6 (primary sim), QOA-DRA-QC@a124284.",
+    "Review 2026-10-17. Scope: qos_sim_final@22dfb5c6 (primary sim), QOA-DRA-QC@fe80b324.",
     "Duplicated code/files: backup_old/ duplicates results_raw_25.csv (SHA 36df1b1e) and results_summary_old_1791337958.csv; log_25/50/100.txt identical (SHA cca4dabb, ModuleNotFoundError: numpy); multiple :Zone.Identifier Windows artifacts; results_summary_old also at root.",
     "Unused files: diagnostics/diag_*.py (one-off NetSquid debug, not imported); backup_old/; examples/verify_dp1.py, run_ablation_*.py, test_simulator_minimal.py, recompute_summary.py (outdated columns); shell scripts resume_watch.sh, run_t3_parallel.sh, run_all.sh; explain.md.",
     "Inconsistent naming: mixed VN/EN comments; CLI --n-nodes vs n_nodes; results_raw_<n>.csv vs summary missing n=25; qaoa_numpy.py fallback vs NetSquid path; F_MIN 0.95 vs prior 0.80; COLLISION_PRUNING=False undocumented in README.",
