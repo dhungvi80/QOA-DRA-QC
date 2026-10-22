@@ -1,42 +1,38 @@
 {
-  "last_updated": "2026-10-19T17:05+07",
+  "last_updated": "2026-10-22T14:05+07",
   "today_focus": [
-    "Filed weekly entry 2026-10-13 to 10-19",
-    "qos_sim_final tip 78df24c4 (18 Oct) logs show active trial progress (seeds 42-141; n=25 partial); force-sync base 22dfb5c6 (11 Oct); no qos_sim source edit",
-    "No new commits on 19 Oct as of 17:05 +07",
-    "Health Check #41 (38018309782) failed 10 Oct 02:48Z; path still repo-root dashboard.json",
-    "Weekly Review #6 (37965463731) failed 9 Oct 17:19Z on git push 403",
-    "Sync V3 #45 (37761431616) failed 8 Oct; GAS OK unproven",
-    "MT-QOS-v11 still 734a2dab; wrapper only; worker --script not in repo",
-    "15 Oct ops commit a124284 documented qos_sim_final health (duplicates, unused, naming, risks)",
-    "17 Oct dashboard update 3cb11afa after prior weekly filing",
+    "Repository Health review 2026-10-22 completed for qos_sim_final@860705d5",
+    "qos_sim_final latest commit 860705d5 (20 Oct) still shows same structural issues; no source cleanup",
+    "results_summary.csv still missing n=25; QAOA+Repair means equal Greedy for n=50/100",
+    "Health Check still fails on root dashboard.json path",
     "Do not mix CSVs across qos_sim_final / cn-qos-sim-framework / MT-QOS-v11 / cn-qos-demo"
   ],
   "new_papers": [
     "2608.27099 DQC partitioner metrics (optional if compilation in scope)"
   ],
   "simulation": [
-    "qos_sim_final 78df24c4 committed logs (progress) and results_raw/summary; summary has n=50 and n=100 only; QAOA+Repair mean equals Greedy; n=25 logs partial; not EXP-2026-001",
+    "qos_sim_final 860705d5: results_summary.csv has n=50 and n=100 only (U_x_mean == greedy_U_x_mean exactly); n=25 raw CSV and logs exist but incomplete summary; QAOA+Repair equals Greedy",
     "MT-QOS-v11 screening runner present; --script target and outputs not committed",
     "EXP-2026-001 scaffold only; QNodeOS/HALO CSVs empty"
   ],
   "repository_health": [
-    "Review 2026-10-19. Scope: qos_sim_final@78df24c4 (primary sim), QOA-DRA-QC@3cb11afa.",
-    "Duplicated code/files: backup_old/ duplicates results_raw_25.csv and results_summary_old; multiple :Zone.Identifier Windows artifacts.",
-    "Unused files: diagnostics/diag_*.py; backup_old/; examples/verify_dp1.py, run_ablation_*.py, test_simulator_minimal.py, recompute_summary.py; shell scripts; explain.md.",
-    "Inconsistent naming: mixed VN/EN comments; CLI --n-nodes vs n_nodes; results_raw_<n>.csv vs summary missing n=25; qaoa_numpy.py fallback vs NetSquid path.",
-    "Simulation risks: simulator.py docstring marks UNTESTED (NetSquid 1.1.x API, DM formalism, HERALDING_DWELL_NS=145us, T2=10ms NV assumptions); logs now show progress but summary incomplete and n=25 partial; results_summary.csv missing n=25 row; QAOA+Repair U(x) equals Greedy exactly; no pinned NetSquid/version CI; health-check.yml still tests root dashboard.json (fails)."
+    "Review 2026-10-22. Scope: qos_sim_final@860705d5a01433c75683f34f19f5126db5c4ef48 (primary sim, tip 20 Oct), QOA-DRA-QC@3db960cf166eaa4b7ffaa2d8f0bce4d425e30b16.",
+    "Duplicated code/files: backup_old/ duplicates results_raw_25.csv (same SHA) and results_summary_old; root results_raw_*_old_*.csv and results_summary_old_* match backup; multiple :Zone.Identifier Windows artifacts (verify_dp1.py, pruning.py, run_t3_parallel.sh).",
+    "Unused files: diagnostics/diag_*.py (noise/fidelity calibration only); backup_old/; examples/verify_dp1.py, run_ablation_*.py, test_simulator_minimal.py, recompute_summary.py and most run_d*/run_g*/run_p* scripts (ablation/generation helpers, not core); shell scripts (run_all.sh, resume_watch.sh, run_t3_parallel.sh); explain.md; qos_sim_final.tar.gz (45 bytes, placeholder).",
+    "Inconsistent naming: mixed Vietnamese/English comments (baseline.py docstrings and comments in VN); file names with _old_<timestamp> vs clean results_*; CLI flags and variables (--n-nodes vs n_nodes); results_raw_<n>.csv present for 25/50/100 but summary only 50/100; qaoa_numpy.py pure-numpy fallback vs NetSquid path in simulator.py.",
+    "Simulation risks: simulator.py docstring explicitly marks UNTESTED (NetSquid 1.1.x API not validated here, requires DM formalism, HERALDING_DWELL_NS=145us from QL2020, T2=10ms electron-spin NV assumptions, depolar_rate=100Hz); results_summary.csv missing n=25 row despite raw data; for n=50 and n=100, QAOA+Repair U(x) mean equals Greedy exactly (and random_repair), indicating repair dominates or variational component adds no value / possible pipeline issue; raw QAOA feasibility very low (19%/4%); no NetSquid version pin or CI; health-check.yml still asserts root dashboard.json (fails); risk of mixing results across sibling repos."
   ],
   "weekly_priorities": [
-    "Recompute n=50/100 from results_raw CSVs and match log_*.txt seeds 42-141; add/explain n=25 row in results_summary.csv; confirm logs are complete (not partial)",
+    "Recompute n=50/100 from results_raw CSVs and match log_*.txt seeds; add/explain n=25 row in results_summary.csv; confirm logs complete",
+    "Investigate why QAOA+Repair U(x) identically equals Greedy (and random_repair) in summary — check repair.py dominance or QAOA implementation",
     "Decide if qos_sim_final is primary simulator, paper-only, or coexists with MT-QOS-v11; do not promote tables to EXP-2026-001",
-    "Independent seeded subset re-run of qos_sim_final tests in clean environment; document NetSquid 1.1.8 assumptions",
+    "Independent seeded subset re-run of qos_sim_final tests in clean environment; document NetSquid assumptions and run self_check()",
     "Pin or add MT-QOS-v11 --script worker and one seeded subset500 log, or retire the repo",
     "Fix health-check.yml path to dashboard/dashboard.json and get a green run",
     "Confirm Dashboard Sync V3 GAS OK",
     "Grant contents: write for Weekly Review so github-actions[bot] can push",
     "Specify or retire EXP-2026-001",
-    "Clean duplicates (backup_old/), unused files, and :Zone.Identifier artifacts in qos_sim_final",
+    "Clean duplicates (backup_old/, *_old_*.csv), unused files (diagnostics/, Zone.Identifier, tar.gz), and inconsistent naming",
     "Do not mix qos_sim_final CSVs with cn-qos-sim-framework, MT-QOS-v11, or cn-qos-demo",
     "Decision Log: 2608.27099 scope"
   ]
